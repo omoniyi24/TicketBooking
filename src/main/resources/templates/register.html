@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <!-- Required meta tags -->
@@ -7,16 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Star Admin Free Bootstrap Admin Dashboard Template</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" th:href="@{vendors/iconfonts/mdi/css/materialdesignicons.min.css}" />
-  <link rel="stylesheet" th:href="@{vendors/css/vendor.bundle.base.css}" />
-  <link rel="stylesheet" th:href="@{vendors/css/vendor.bundle.addons.css}" />
+  <link rel="stylesheet" th:href="@{/vendors/iconfonts/mdi/css/materialdesignicons.min.css}" />
+  <link rel="stylesheet" th:href="@{/vendors/css/vendor.bundle.base.css}" />
+  <link rel="stylesheet" th:href="@{/vendors/css/vendor.bundle.addons.css}" />
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" th:href="@{css/style.css}" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
   <!-- endinject -->
-  <link rel="stylesheet" th:href="@{images/favicon.png}" />
+  <link rel="stylesheet" th:href="@{/images/favicon.png}" />
 </head>
 
 <body>
@@ -27,10 +28,12 @@
           <div class="col-lg-4 mx-auto">
             <h2 class="text-center mb-4">Register</h2>
             <div class="auto-form-wrapper">
-              <form action="#">
+              <div th:if="${message}" th:text="${message}" />
+              <form action="#" th:action="@{/registration}"
+                    th:object="${user}" method="post" >
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" th:field="*{username}" placeholder="Username">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -40,7 +43,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" th:field="*{password}" placeholder="Password">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -50,7 +53,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Confirm Password">
+                    <input type="password" class="form-control" th:field="*{cpassword}" placeholder="Confirm Password">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -70,7 +73,7 @@
                 </div>
                 <div class="text-block text-center my-3">
                   <span class="text-small font-weight-semibold">Already have and account ?</span>
-                  <a th:href="@{login}" class="text-black text-small">Login</a>
+                  <a href="login.html" class="text-black text-small" th:href="@{/login}">Login</a>
                 </div>
               </form>
             </div>

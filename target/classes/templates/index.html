@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <!-- Required meta tags -->
@@ -7,16 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Star Admin Free Bootstrap Admin Dashboard Template</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" th:href="@{vendors/iconfonts/mdi/css/materialdesignicons.min.css}" />
-  <link rel="stylesheet" th:href="@{vendors/css/vendor.bundle.base.css}" />
-  <link rel="stylesheet" th:href="@{vendors/css/vendor.bundle.addons.css}" />
+  <link rel="stylesheet" href="">
+  <link rel="stylesheet" th:href="@{/vendors/iconfonts/mdi/css/materialdesignicons.min.css}" />
+
+  <link rel="stylesheet" th:href="@{/vendors/css/vendor.bundle.base.css}" />
+
+  <link rel="stylesheet" th:href="@{/vendors/css/vendor.bundle.addons.css}" />
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" th:href="@{css/style.css}" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
   <!-- endinject -->
-  <link rel="stylesheet" th:href="@{images/favicon.png}" />
+  <link rel="stylesheet" th:href="@{/images/favicon.png}" />
 </head>
 
 <body>
@@ -24,7 +28,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">
+        <a class="navbar-brand brand-logo" href="index.html"  th:href="@{/home}">
           <img src="images/logo.svg" alt="logo" />
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.html">
@@ -160,7 +164,7 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Richard V.Welsh !</span>
+              <span class="profile-text" th:text="${userName}"></span>
               <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -186,7 +190,7 @@
               <a class="dropdown-item">
                 Check Inbox
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" th:href="@{/logout}">
                 Sign Out
               </a>
             </div>
@@ -209,7 +213,7 @@
                   <img src="images/faces/face1.jpg" alt="profile image">
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Richard V.Welsh</p>
+                  <p class="profile-name" th:text="${userName.substring(8)}"></p>
                   <div>
                     <small class="designation text-muted">Manager</small>
                     <span class="status-indicator online"></span>

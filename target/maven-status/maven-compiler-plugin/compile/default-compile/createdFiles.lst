@@ -1,0 +1,12 @@
+com\bookbusonile\main\config\SecurityConfiguration.class
+com\bookbusonile\main\repository\RoleRepository.class
+com\bookbusonile\main\component\UserValidator.class
+com\bookbusonile\main\BookBusApp.class
+com\bookbusonile\main\service\UserService.class
+com\bookbusonile\main\dao\UserInfoDao.class
+com\bookbusonile\main\model\User.class
+com\bookbusonile\main\controller\RegistrationController.class
+com\bookbusonile\main\model\Role.class
+com\bookbusonile\main\repository\UserRepository.class
+com\bookbusonile\main\config\WebMvcConfig.class
+com\bookbusonile\main\enums\UserStatus.class
